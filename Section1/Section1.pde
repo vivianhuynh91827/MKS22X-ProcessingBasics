@@ -45,18 +45,14 @@ class Visualizer {
     for (int i = 0; i < values.length; i ++) {
       float distFromTop;
       if (values[i] >= 0) {
-        distFromTop = 100 - values[i];
-        if (values[i] > 50) fill(distFromTop*(255/50),255,0);
-        else fill(255,255-((distFromTop-50)*(9/5)),0);
-        rect(startingX,startingY-values[i],40,values[i]);
+        fill(255-(values[i]*(255/100)),255,0);
+        rect(startingX,startingY-values[i],400/values.length,values[i]);
       }
       else {
-        distFromTop = 100-(values[i] *-1);
-        if (values[i] >= -50) fill(255,165+((distFromTop-5)*(90/50)),0);
-        else fill(255,distFromTop*(165/50),0);
-        rect(startingX,startingY,40,values[i]*-1);
+        fill(255,165-(values[i]*-1*(165/100)),0);
+        rect(startingX,startingY,400/values.length,values[i]*-1);
       }
-      startingX+=40;
+      startingX+=400/values.length;
     }
     //Width of the visualizer is 400!
 
